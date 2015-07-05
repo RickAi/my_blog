@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Page;
 use Illuminate\Http\Request;
+use ParsedownExtra;
 
 class PagesController extends Controller {
 
@@ -46,7 +47,10 @@ class PagesController extends Controller {
 	 */
 	public function show($id)
 	{
-		return view('pages.show')->withPage(Page::find($id));
+		$page = Page::find($id);
+		$extra = new ParsedownExtra();
+		$page->body = $extra->text($page->body);
+		return view('pages.show')->withPage($page);
 	}
 
 	/**
