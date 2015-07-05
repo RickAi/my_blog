@@ -27,15 +27,20 @@ class PageTableSeeder extends Seeder
                 continue;
             }
 
-            $file_title = $file_system->name($file);
             $file_content = $file_system->get($file);
+            $file = preg_replace('/^.+[\\\\\\/]/', '', $file);
+            $file = explode(".md", $file);
+            $file = $file[0];
 
-            if($file_title == ''){
-                continue;
-            }
+            $this->command->info($file);
+
+//            if($file_title == ''){e
+//                continue;
+//            }
 
             Page::create([
-                'title' => $file_title,
+                // 使用preg_replace解决不支持中文
+                'title' => preg_replace('/^.+[\\\\\\/]/', '', $file),
                 'slug' => 'blog',
                 'body' => $file_content,
                 'user_id' => 1,

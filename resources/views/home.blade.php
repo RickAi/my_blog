@@ -18,16 +18,5 @@
 				</li>
 			@endforeach
 		</ul>
-		<ul>
-			@foreach ($pages as $page)
-				<li style="margin: 50px 0;">
-					<div class="title">
-						<a href="{{ URL('pages/'.$page->id) }}">
-							<h4>{{ $page->title }}</h4>
-						</a>
-					</div>
-				</li>
-			@endforeach
-		</ul>
 	</div>
 @endsection
