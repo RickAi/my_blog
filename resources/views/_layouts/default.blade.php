@@ -11,6 +11,9 @@
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
+    <!-- Fonts -->
+    <link href='http://fonts.useso.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
     {{--JavaScript--}}
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src={{ URL::asset('js/materialize.js') }}></script>
@@ -28,7 +31,8 @@
 
     <div class="nav-wrapper container">
         <ul class="right hide-on-med-and-down">
-            <li><a href="#">Blog</a></li>
+            <li><a href="{{ URL('/') }}">Homepage</a> </li>
+            <li><a href="{{ URL('/blog') }}">Blog</a></li>
             <li><a href="#">Book</a></li>
             <li><a href="#">Fitness</a></li>
             <li><a href="#">Project</a></li>

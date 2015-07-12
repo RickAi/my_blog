@@ -14,7 +14,15 @@
 //Route::get('/', 'WelcomeController@index');
 //Route::get('home', 'HomeController@index');
 
+//HomeController
 Route::get('/', 'HomeController@index');
+Route::get('/blog', 'HomeController@blog');
+Route::get('/me', 'HomeController@me');
+Route::get('/book', 'HomeController@book');
+Route::get('/movie', 'HomeController@movie');
+Route::get('/fitness', 'HomeController@fitness');
+Route::get('/project', 'HomeController@project');
+
 Route::get('pages/{id}', 'PagesController@show');
 Route::post('comment/store', 'CommentsController@store');
 
