@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col s12 m4">
 				<div class="icon-block">
-					<h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+					<h2 class="center brown-text"><a href="{{ URL('/blog') }}"><i class="material-icons">flash_on</i></a></h2>
 					<h5 class="center">Blog</h5>
 
 					<p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
