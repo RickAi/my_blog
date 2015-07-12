@@ -50,6 +50,7 @@ class PagesController extends Controller {
 		$page = Page::find($id);
 		$extra = new ParsedownExtra();
 		$page->body = $extra->text($page->body);
+
 		return view('pages.show')->withPage($page);
 	}
 
