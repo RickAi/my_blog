@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<div class="row center">
-			<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">About me</a>
+			<a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">About me</a>
 		</div>
 	</div>
 	<div class="parallax"><img src={{asset('images/background1.jpg')}} alt="Unsplashed background img 1"></div>
