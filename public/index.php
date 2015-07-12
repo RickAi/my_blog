@@ -18,9 +18,6 @@
 |
 */
 
-define('WP_USE_THEMES', false);
-require __DIR__.'/../wordpress/wp-blog-header.php';
-
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*

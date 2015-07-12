@@ -9,4 +9,7 @@ class HomeController extends Controller {
 		return view('home')->withPages(Page::all());
 	}
 
+	public function blog(){
+		
+	}
 }
