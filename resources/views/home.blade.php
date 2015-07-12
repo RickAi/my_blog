@@ -2,7 +2,6 @@
 
 @section('content')
 	<div id="title" style="text-align: center;">
-		<h1>blog</h1>
 		<div style="padding: 5px; font-size: 16px;">{{ Inspiring::quote() }}</div>
 	</div>
 	<hr>
