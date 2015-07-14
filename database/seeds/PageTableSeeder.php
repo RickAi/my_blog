@@ -16,7 +16,7 @@ class PageTableSeeder extends Seeder
     {
         DB::table('pages')->delete();
 
-        $dir = "/home/vagrant/projects/blogs";
+        $dir = "/root/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);

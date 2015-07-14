@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('_layouts.default')
 
 @section('content')
@@ -87,3 +88,5 @@
 
 @endsection
 
+=======
+>>>>>>> 415db0caec5ce27e74d23587adc7f27e96b83a9c
