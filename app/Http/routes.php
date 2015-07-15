@@ -23,7 +23,7 @@ Route::get('/movie', 'HomeController@movie');
 Route::get('/fitness', 'HomeController@fitness');
 Route::get('/project', 'HomeController@project');
 
-Route::get('pages/{id}', 'PagesController@show');
+Route::get('/pages/{id}', 'PagesController@show');
 Route::post('comment/store', 'CommentsController@store');
 
 //Route::controllers([

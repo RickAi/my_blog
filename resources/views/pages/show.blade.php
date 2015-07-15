@@ -1,89 +1,179 @@
 @extends('_layouts.default')
 
+<style>
+
+    html {
+        font-size: 62.5%;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 1.3;
+        margin: auto;
+    }
+
+    p, ul, ol, dl, table, pre {
+        margin-bottom: 1em;
+        font-size: 110%;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:focus {
+        outline: 1px dotted;
+    }
+
+    a:visited {
+    }
+
+    a:hover, a:focus {
+        text-decoration: none;
+    }
+
+    a *, button * {
+        cursor: pointer;
+    }
+
+    hr {
+        display: none;
+    }
+
+    small {
+        font-size: 90%;
+    }
+
+    input, select, button, textarea, option {
+        font-family: Arial, "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+        font-size: 100%;
+    }
+
+    button, label, select, option, input[type=submit] {
+        cursor: pointer;
+    }
+
+    .group:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    .group {
+        display: inline-block;
+    }
+
+    /* Hides from IE-mac \*/
+    * html .group {
+        height: 1%;
+    }
+
+    .group {
+        display: block;
+    }
+
+    /* End hide from IE-mac */
+    sup {
+        font-size: 80%;
+        line-height: 1;
+        vertical-align: super;
+    }
+
+    button::-moz-focus-inner {
+        border: 0;
+        padding: 1px;
+    }
+
+    span.amp {
+        font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+        font-weight: normal;
+        font-style: italic;
+        font-size: 1.2em;
+        line-height: 0.8;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.1;
+        font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+    }
+
+    h2 {
+        font-size: 22pt;
+    }
+
+    h3 {
+        font-size: 20pt;
+    }
+
+    h4 {
+        font-size: 18pt;
+    }
+
+    h5 {
+        font-size: 16pt;
+    }
+
+    h6 {
+        font-size: 14pt;
+    }
+
+    ::-moz-selection {
+        background: #745626;
+    }
+
+    h1 {
+        font-size: 420%;
+        margin: 0 0 0.1em;
+        font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+    }
+
+    h1 a,
+    h1 a:hover {
+        color: #d7af72;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+    pre {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 8px 10px;
+        color: #FFFFFF;
+        border-radius: 0.4em;
+        -moz-border-radius: 0.4em;
+        -webkit-border-radius: 0.4em;
+        overflow-x: hidden;
+    }
+
+    pre code {
+        font-size: 11pt;
+    }
+
+    .thumb {
+        float: left;
+        margin: 10px;
+    }
+
+</style>
+
+
 @section('content')
-    <h4>
-        <a href="/">⬅️返回首页</a>
-    </h4>
 
-    <hr>
-    <div id="date" style="text-align: right;">
-        {{ $page->updated_at }}
-    </div>
-    <div id="content" style="padding: 50px;">
-        <p>
+
+    <div class="container">
+        <div class="card-panel hoverable">
            {!! $page->body !!}
-        </p>
-    </div>
-    <div id="comments" style="margin-bottom: 100px;">
-
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <div id="new">
-            <form action="{{ URL('comment/store') }}" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="page_id" value="{{ $page->id }}">
-                <div class="form-group">
-                    <label>Nickname</label>
-                    <input type="text" name="nickname" class="form-control" style="width: 300px;" required="required">
-                </div>
-                <div class="form-group">
-                    <label>Email address</label>
-                    <input type="email" name="email" class="form-control" style="width: 300px;">
-                </div>
-                <div class="form-group">
-                    <label>Home page</label>
-                    <input type="text" name="website" class="form-control" style="width: 300px;">
-                </div>
-                <div class="form-group">
-                    <label>Content</label>
-                    <textarea name="content" id="newFormContent" class="form-control" rows="10" required="required"></textarea>
-                </div>
-                <button type="submit" class="btn btn-lg btn-success col-lg-12">Submit</button>
-            </form>
-        </div>
-
-        <script>
-            function reply(a) {
-                var nickname = a.parentNode.parentNode.firstChild.nextSibling.getAttribute('data');
-                var textArea = document.getElementById('newFormContent');
-                textArea.innerHTML = '@'+nickname+' ';
-            }
-        </script>
-
-        <div class="conmments" style="margin-top: 100px;">
-            @foreach ($page->hasManyComments as $comment)
-
-                <div class="one" style="border-top: solid 20px #efefef; padding: 5px 20px;">
-                    <div class="nickname" data="{{ $comment->nickname }}">
-                        @if ($comment->website)
-                            <a href="{{ $comment->website }}">
-                                <h3>{{ $comment->nickname }}</h3>
-                            </a>
-                        @else
-                            <h3>{{ $comment->nickname }}</h3>
-                        @endif
-                        <h6>{{ $comment->created_at }}</h6>
-                    </div>
-                    <div class="content">
-                        <p style="padding: 20px;">
-                            {{ $comment->content }}
-                        </p>
-                    </div>
-                    <div class="reply" style="text-align: right; padding: 5px;">
-                        <a href="#new" onclick="reply(this);">回复</a>
-                    </div>
-                </div>
-
-            @endforeach
         </div>
     </div>
+
 @endsection
