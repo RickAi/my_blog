@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Page;
+use App\Article;
+use App\ArticleType;
 
 class HomeController extends Controller {
 
@@ -12,7 +13,10 @@ class HomeController extends Controller {
 
 	// blog page
 	public function blog(){
-		return view('blog')->withPages(Page::all());
+		$articles = Article::all();
+		$types = ArticleType::all();
+
+		return view('blog', compact('articles', 'types'));
 	}
 
 	// about me page

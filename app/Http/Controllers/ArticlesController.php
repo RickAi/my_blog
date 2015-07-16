@@ -1,12 +1,12 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers;
 
-use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use ParsedownExtra;
 
-class AdminHomeController extends Controller {
+class ArticlesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AdminHomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('AdminHome')->withPages(Article::all());
+		//
 	}
 
 	/**
@@ -46,7 +46,11 @@ class AdminHomeController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$page = Page::find($id);
+		$extra = new ParsedownExtra();
+		$page->body = $extra->text($page->body);
+
+		return view('pages.show', compact('page'));
 	}
 
 	/**

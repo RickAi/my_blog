@@ -3,11 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Page;
 use Illuminate\Http\Request;
-use ParsedownExtra;
 
-class PagesController extends Controller {
+class ArticleTypeController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -26,7 +24,8 @@ class PagesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+
+
 	}
 
 	/**
@@ -47,11 +46,7 @@ class PagesController extends Controller {
 	 */
 	public function show($id)
 	{
-		$page = Page::find($id);
-		$extra = new ParsedownExtra();
-		$page->body = $extra->text($page->body);
-
-		return view('pages.show')->withPage($page);
+		//
 	}
 
 	/**

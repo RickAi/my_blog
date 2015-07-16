@@ -172,7 +172,7 @@
 
     <div class="container">
         <div class="card-panel hoverable">
-           {!! $page->body !!}
+           {!! $articles->body !!}
         </div>
     </div>
 

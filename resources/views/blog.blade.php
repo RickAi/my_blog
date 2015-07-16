@@ -9,31 +9,28 @@
             <div class="container">
                 <div class="card">
                     <div class="collection card-content">
-                        @foreach ($pages as $page)
-                            <a class="collection-item" href="{{ URL('pages/'.$page->id) }}">{{$page->title}}</a>
+                        @foreach ($articles as $article)
+                            <a class="collection-item light-blue-text text-darken-4 waves-effect waves-teal"
+                               href="{{ URL('pages/'.$article->id) }}">{{$article->title}}</a>
                         @endforeach
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="col s12 m4 l3">
 
+            <ul class="collapsible popout" data-collapsible="expandable">
 
-            <div class="container">
-            <div class="card">
-
-                <div class="card-content">
-
-                    I think that is it
-                </div>
-
-            </div>
-            </div>
-
-
+                @foreach($types as $type)
+                <li>
+                    <div class="collapsible-header waves-effect waves-teal"><i class="material-icons">filter_drama</i>{{ $type->name }}</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                @endforeach
+            </ul>
         </div>
-
     </div>
 
 @endsection

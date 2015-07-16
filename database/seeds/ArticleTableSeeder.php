@@ -1,5 +1,5 @@
 <?php
-use App\Page;
+use App\Article;
 use Illuminate\Database\Seeder;
 use Illuminate\Filesystem\Filesystem;
 
@@ -9,14 +9,14 @@ use Illuminate\Filesystem\Filesystem;
  * Date: 6/29/15
  * Time: 17:08
  */
-class PageTableSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
 
     public function run()
     {
-        DB::table('pages')->delete();
+        DB::table('articles')->delete();
 
-        $dir = "/root/blogs";
+        $dir = "/home/vagrant/projects/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);
@@ -38,7 +38,7 @@ class PageTableSeeder extends Seeder
 //                continue;
 //            }
 
-            Page::create([
+            Article::create([
                 // 使用preg_replace解决不支持中文
                 'title' => preg_replace('/^.+[\\\\\\/]/', '', $file),
                 'slug' => 'blog',
