@@ -20,7 +20,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ URL('admin/pages/'.$page->id) }}" method="POST">
+                        <form action="{{ URL(articles.$page->id) }}" method="POST">
                             <input name="_method" type="hidden" value="PUT">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="title" class="form-control" required="required" value="{{ $page->title }}">

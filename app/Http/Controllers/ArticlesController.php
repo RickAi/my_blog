@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -46,11 +47,11 @@ class ArticlesController extends Controller {
 	 */
 	public function show($id)
 	{
-		$page = Page::find($id);
+		$article = Article::find($id);
 		$extra = new ParsedownExtra();
-		$page->body = $extra->text($page->body);
+		$article->body = $extra->text($article->body);
 
-		return view('pages.show', compact('page'));
+		return view('articles.show', compact('article'));
 	}
 
 	/**

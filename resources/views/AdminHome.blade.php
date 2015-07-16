@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
 
-                        <a href="{{ URL('admin/pages/create') }}" class="btn btn-lg btn-primary">新增</a>
+                        <a href="{{ URL(articles) }}" class="btn btn-lg btn-primary">新增</a>
 
                         @foreach ($pages as $page)
                             <hr>
@@ -21,9 +21,9 @@
                                     </p>
                                 </div>
                             </div>
-                            <a href="{{ URL('admin/pages/'.$page->id.'/edit') }}" class="btn btn-success">编辑</a>
+                            <a href="{{ URL(articles.$page->id.'/edit') }}" class="btn btn-success">编辑</a>
 
-                            <form action="{{ URL('admin/pages/'.$page->id) }}" method="POST" style="display: inline;">
+                            <form action="{{ URL(articles.$page->id) }}" method="POST" style="display: inline;">
                                 <input name="_method" type="hidden" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-danger">删除</button>

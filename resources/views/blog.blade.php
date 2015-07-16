@@ -11,7 +11,7 @@
                     <div class="collection card-content">
                         @foreach ($articles as $article)
                             <a class="collection-item light-blue-text text-darken-4 waves-effect waves-teal"
-                               href="{{ URL('pages/'.$article->id) }}">{{$article->title}}</a>
+                               href="{{ URL('articles/'.$article->id) }}">{{$article->title}}</a>
                         @endforeach
                     </div>
                 </div>
