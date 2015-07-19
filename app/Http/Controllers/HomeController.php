@@ -16,7 +16,7 @@ class HomeController extends Controller {
 		$articles = Article::all();
 		$types = ArticleType::all();
 
-		return view('blog', compact('articles', 'types'));
+		return view('homepage.blog', compact('articles', 'types'));
 	}
 
 	// about me page

@@ -1,82 +1,96 @@
-@extends('_layouts.default')
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>燃冰非冰 | Yogi Ai</title>
 
-@section('content')
+    {{--CSS--}}
+    <link href="/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <div id="index-banner" class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center">
-                    <h5 class="header col s12 light">A personal website which record coding and daily activites</h5>
-                </div>
+    {{--JavaScript--}}
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="/materialize/js/materialize.js"></script>
+    <script src="/materialize/js/init.js"></script>
+
+</head>
+<body>
+
+<style>
+
+    h3 {
+        font-size: 2.2rem;
+        line-height: 110%;
+        margin-bottom: 1em;
+        font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+    }
+
+</style>
+
+<div class="slider fullscreen">
+    <ul class="slides">
+        <li>
+            <img src="/images/homepage1.jpg"> <!-- random image -->
+            <div class="caption center-align">
+                <h3>A personal website which record coding and daily activities.</h3>
+                <a class="waves-effect waves-light btn-large light-blue darken-4">About me</a>
             </div>
-            <div class="row center">
-                <a href="#" id="download-button" class="btn-large waves-effect waves-light light-blue darken-4">About
-                    me</a>
+        </li>
+        <li>
+            <img src="/images/homepage2.jpg"> <!-- random image -->
+            <div class="caption left-align">
+                <h3>When we write a blog, we are thinking, sharing and recoding.</h3>
+                <a href="/blog" class="waves-effect waves-light btn-large grey darken-4">Blog</a>
             </div>
-        </div>
-        <div class="parallax"><img src={{asset('images/background1.jpg')}} alt="Unsplashed background img 1"></div>
-    </div>
+        </li>
+        <li>
+            <img src="/images/homepage8.png"> <!-- random image -->
+            <div class="caption right-align">
+                <h3>If programmer was a soldier, then project is his badge.</h3>
+                <a href="" class="waves-effect waves-light btn-large red darken-4">Project</a>
+            </div>
+        </li>
+        <li>
+            <img src="/images/homepage3.jpg"> <!-- random image -->
+            <div class="caption center-align">
+                <h3>Book is the whetstone of the mind.</h3>
+                <a class="waves-effect waves-light btn-large  green darken-3">Book</a>
+            </div>
+        </li>
+        <li>
+            <img src="/images/homepage4.png"> <!-- random image -->
+            <div class="caption left-align">
+                <h3>A man don't watch movie lost one of the beauty in the world.</h3>
+                <a class="waves-effect waves-light btn-large brown darken-4">Movie</a>
+            </div>
+        </li>
+        <li>
+            <img src="/images/homepage5.jpg"> <!-- random image -->
+            <div class="caption right-align">
+                <h3>I love music which have short length but with long story.</h3>
+                <a class="waves-effect waves-light btn-large grey darken-3">Music</a>
+            </div>
+        </li>
+        <li>
+            <img src="/images/homepage6.jpg"> <!-- random image -->
+            <div class="caption center-align">
+                <h3>I love fitness because I enjoy feeling alive.</h3>
+                <a class="waves-effect waves-light btn-large blue-grey darken-4">Fitness</a>
+            </div>
+        </li>
+        <li>
+            <img src="/images/homepage7.jpg"> <!-- random image -->
+            <div class="caption left-align">
+                <h3>Sometimes I want waste some time.</h3>
+                <a class="waves-effect waves-light btn-large teal darken-4">Game</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="card-panel hoverable col s12 m4">
-                <a href="{{ URL('/blog') }}">
-                    <div class="icon-block">
-                        <h2 class="center blue-text"><i class="material-icons">picture_in_picture</i></h2>
-                        <h5 class="center blue-text">Blog</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card-panel hoverable col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">Project</h5>
-                </div>
-            </div>
-
-            <div class="card-panel hoverable col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
-                    <h5 class="center">Book</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="card-panel hoverable col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">movie</i></h2>
-                    <h5 class="center">Movie</h5>
-                </div>
-            </div>
-            <div class="card-panel hoverable col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">dashboard</i></h2>
-                    <h5 class="center">Fitness</h5>
-                </div>
-            </div>
-            <div class="card-panel hoverable col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">games</i></h2>
-                    <h5 class="center">Game</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center">
-                    <h5 class="header col s12 light">Enjoy the life!</h5>
-                </div>
-            </div>
-        </div>
-        <div class="parallax"><img src="{{ URL::asset('images/background3.jpg') }}" alt="Unsplashed background img 3">
-        </div>
-    </div>
-
-@endsection

@@ -169,11 +169,13 @@
 
 @section('content')
 
+    <div class="ui container">
+            <div class="ui raised segment">
 
-    <div class="container">
-        <div class="card-panel hoverable">
-           {!! $article->body !!}
-        </div>
+                 {!! $article->body !!}
+
+             </div>
     </div>
+
 
 @endsection
