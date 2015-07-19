@@ -35,7 +35,7 @@
             <img src="/images/homepage1.jpg"> <!-- random image -->
             <div class="caption center-align">
                 <h3>A personal website which record coding and daily activities.</h3>
-                <a class="waves-effect waves-light btn-large light-blue darken-4">About me</a>
+                <a href="/me" class="waves-effect waves-light btn-large light-blue darken-4">About me</a>
             </div>
         </li>
         <li>

@@ -28,7 +28,7 @@
 <body>
 
 <!-- Following Menu -->
-<div class="ui large top fixed inverted hidden menu">
+<div class="ui large top fixed inverted hidden menu computer tablet only">
     <div class="ui container">
         <a href="/blog" class="item">Blog</a>
         <a class="item">Project</a>
@@ -36,12 +36,12 @@
         <a class="item">Movie</a>
         <a class="item">Music</a>
         <a class="item">Fitness</a>
-        <a class="item">About Me</a>
+        <a href="/me" class="item">About Me</a>
     </div>
 </div>
 
 <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment computer tablet only">
         <div class="ui container">
             <div class="ui large secondary inverted menu">
                 <a href="/blog" class="item">Blog</a>
@@ -50,7 +50,7 @@
                 <a class="item">Movie</a>
                 <a class="item">Music</a>
                 <a class="item">Fitness</a>
-                <a class="item">About Me</a>
+                <a href="/me" class="item">About Me</a>
             </div>
         </div>
     </div>

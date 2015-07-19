@@ -2,6 +2,8 @@
 
 use App\Article;
 use App\ArticleType;
+use Illuminate\Filesystem\Filesystem;
+use ParsedownExtra;
 
 class HomeController extends Controller {
 
@@ -15,18 +17,20 @@ class HomeController extends Controller {
 	public function blog(){
 		$articles = Article::all();
 		$types = ArticleType::all();
-		$part_articles = array();
 
-		foreach ($types as $type) {
-			$part_articles[$type->id] = $type->articles;
-		}
-
-		return view('homepage.blog', compact('articles', 'types', 'part_articles'));
+		return view('homepage.blog', compact('articles', 'types'));
 	}
 
 	// about me page
 	public function me(){
+		$file_system = new Filesystem();
+		$extra = new ParsedownExtra();
+		$about_me_file = public_path()."/files/about_me.md";
 
+		$about_me_content = $file_system->get($about_me_file);
+		$about_me_content = $extra->text($about_me_content);
+
+		return view('homepage.me', compact('about_me_content'));
 	}
 
 	// the book record page

@@ -24,7 +24,7 @@
 
             </div>
         </div>
-        <div class="three wide column">
+        <div class="three wide column computer tablet only">
 
             @foreach($types as $type)
 
