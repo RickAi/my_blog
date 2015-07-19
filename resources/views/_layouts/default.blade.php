@@ -40,14 +40,6 @@
     </div>
 </div>
 
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
-    <a class="active item">Home</a>
-    <a class="item">Work</a>
-    <a class="item">Company</a>
-    <a class="item">Careers</a>
-</div>
-
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui container">

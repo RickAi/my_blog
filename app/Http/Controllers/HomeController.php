@@ -15,8 +15,13 @@ class HomeController extends Controller {
 	public function blog(){
 		$articles = Article::all();
 		$types = ArticleType::all();
+		$part_articles = array();
 
-		return view('homepage.blog', compact('articles', 'types'));
+		foreach ($types as $type) {
+			$part_articles[$type->id] = $type->articles;
+		}
+
+		return view('homepage.blog', compact('articles', 'types', 'part_articles'));
 	}
 
 	// about me page

@@ -20,6 +20,10 @@
           $('.ui.sidebar')
               .sidebar('attach events', '.toc.item');
 
+            $('.ui.accordion')
+                .accordion()
+            ;
+
         });
 
   }); // end of document ready
