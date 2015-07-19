@@ -19,7 +19,7 @@ class ArticleTypeSeeder extends Seeder {
         $tag_array = array();
         $first_add = true;
 
-        $dir = "/home/vagrant/projects/blogs";
+        $dir = "/root/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);

@@ -21,7 +21,7 @@ class ArticleTableSeeder extends Seeder
         $tags = ArticleType::all();
 
         // 初始化博客的路径
-        $dir = "/home/vagrant/projects/blogs";
+        $dir = "/root/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);
