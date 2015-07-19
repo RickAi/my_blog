@@ -15,7 +15,8 @@ class HomeController extends Controller {
 
 	// blog page
 	public function blog(){
-		$articles = Article::all();
+		// Get articles with pagination, 30 for each
+		$articles = Article::paginate(30);
 		$types = ArticleType::all();
 
 		return view('homepage.blog', compact('articles', 'types'));
