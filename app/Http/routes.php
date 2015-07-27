@@ -28,22 +28,23 @@ Route::post('comment/store', 'CommentsController@store');
 
 Route::controllers([
     'console/auth' => 'Auth\AuthController',
+
 ]);
 
 
 Route::group(['prefix' => 'console', 'middleware' => 'auth'], function(){
-    Route::any('/', 'console\MainController@index');
-    Route::resource('main', 'console\MainController');
+    Route::any('/', 'console\HomeController@index');
+    Route::resource('home', 'console\HomeController');
+    Route::resource('content', 'console\ContentController');
+    Route::resource('article', 'console\ArticleController');
+    Route::resource('article_type', 'console\ArticleTypeController');
+    Route::resource('article_tag', 'console\ArticleTagController');
 } );
 
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
 //]);
-
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 //Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 //{
