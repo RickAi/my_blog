@@ -27,10 +27,12 @@ class AuthController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
 	 * @return void
 	 */
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct(Guard $auth)
 	{
 		$this->auth = $auth;
-		$this->registrar = $registrar;
+		$this->loginPath = 'console/auth/login';
+		$this->redirectPath = url(route('console.main.index'));
+		$this->redirectAfterLogout = url('console/auth/login');
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}

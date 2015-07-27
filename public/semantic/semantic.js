@@ -70,11 +70,11 @@ $.site = $.fn.site = function(parameters) {
       console: function() {
         module.debug('Normalizing window.console');
         if (console === undefined || console.log === undefined) {
-          module.verbose('Console not available, normalizing events');
+          module.verbose('console not available, normalizing events');
           module.disable.console();
         }
         if (typeof console.group == 'undefined' || typeof console.groupEnd == 'undefined' || typeof console.groupCollapsed == 'undefined') {
-          module.verbose('Console group not available, normalizing events');
+          module.verbose('console group not available, normalizing events');
           window.console.group = function() {};
           window.console.groupEnd = function() {};
           window.console.groupCollapsed = function() {};
@@ -438,7 +438,7 @@ $.site.settings = {
   namespace   : 'site',
 
   error : {
-    console : 'Console cannot be restored, most likely it was overwritten outside of module',
+    console : 'console cannot be restored, most likely it was overwritten outside of module',
     method : 'The method you called is not defined.'
   },
 

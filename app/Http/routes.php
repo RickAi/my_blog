@@ -26,6 +26,16 @@ Route::get('/project', 'HomeController@project');
 Route::get('/articles/{id}', 'ArticlesController@show');
 Route::post('comment/store', 'CommentsController@store');
 
+Route::controllers([
+    'console/auth' => 'Auth\AuthController',
+]);
+
+
+Route::group(['prefix' => 'console', 'middleware' => 'auth'], function(){
+    Route::any('/', 'console\MainController@index');
+    Route::resource('main', 'console\MainController');
+} );
+
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
