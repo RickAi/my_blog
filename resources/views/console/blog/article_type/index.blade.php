@@ -20,12 +20,9 @@
                         @foreach($article_types as $k=> $v)
                         <tr>
                             <th scope="row">{{ $v->id }}</th>
-                            {{--<td>{{ $v->html}} {{ $v->cate_name }}</td>--}}
                             <td>{{ $v->name }}</td>
+                            <td>{{ $v->created_at }}</td>
                             <td class="text-right">
-
-
-
 
                                 {!! Form::open([
                                 'route' => array('console.article_type.destroy', $v->id),

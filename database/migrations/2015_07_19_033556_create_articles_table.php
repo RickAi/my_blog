@@ -23,6 +23,7 @@ class CreateArticlesTable extends Migration {
 			$table->string('slug')->nullable();
 			$table->text('body')->nullable();
 			$table->integer('user_id');
+			$table->integer('view_numbers');
 			$table->timestamps();
 
 			$table->foreign('article_type_id')
