@@ -1,4 +1,4 @@
-@extends('console.content.common')
+@extends('console.blog.common')
 
 @section('content')
         <div class="col-md-10">

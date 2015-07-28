@@ -3,9 +3,10 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\User;
 use Illuminate\Http\Request;
 
-class ContentController extends Controller {
+class UserController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ContentController extends Controller {
 	 */
 	public function index()
 	{
-		return view('console.content.index');
+		$users = User::paginate(10);
+		return view('console.user.index', compact('users'));
 	}
 
 	/**

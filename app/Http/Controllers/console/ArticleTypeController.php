@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\console;
 
+use App\ArticleType;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class ArticleTypeController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$article_types = ArticleType::paginate(15);
+
+		return view('console.blog.article_type.index', compact('article_types'));
 	}
 
 	/**

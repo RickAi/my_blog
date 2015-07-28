@@ -1,4 +1,4 @@
-@extends('console.content.common')
+@extends('console.blog.common')
 
 @section('content')
         <div class="col-md-10">
@@ -7,28 +7,34 @@
                 <div class="panel-heading">内容管理</div>
 
                 <div class="panel-body">
-                    <a class="btn btn-success" href="{{ URL::route('console.tags.create')}}">创建标签</a>
+                    <a class="btn btn-success" href="{{ URL::route('console.article.create')}}">写文章</a>
 
                     <table class="table table-hover table-top">
                         <tr>
                             <th>#</th>
-                            <th>标签名</th>
-                            <th>引用次数</th>
+                            <th>title</th>
+                            <th>所属分类</th>
+                            <th>作者</th>
+                            <th>游览次数</th>
+                            <th>评论数</th>
+                            <th>创建时间</th>
                             <th class="text-right">操作</th>
                         </tr>
 
-                        @foreach($tags as $k=> $v)
+                        @foreach($article as $k=> $v)
                         <tr>
                             <th scope="row">{{ $v->id }}</th>
-                            <td>{{ $v->name }}</td>
-                            <td>{{ $v->number }}</td>
+                            <td>{{ $v->title }}</td>
+                            {{--<td>{{ App\Model\Category::getCategoryNameByCatId($v->cate_id) }}</td>--}}
+                            {{--<td>{{ App\User::getUserNameByUserId($v->user_id) }}</td>--}}
+                            {{--<td>{{ $v->status->view_number }}</td>--}}
+                            {{--<td>{{ $v->status->comment_number }}</td>--}}
+                            {{--<td>{{ $v->created_at }}</td>--}}
                             <td class="text-right">
 
 
-
-
                                 {!! Form::open([
-                                'route' => array('console.tags.destroy', $v->id),
+                                'route' => array('console.article.destroy', $v->id),
                                 'method' => 'delete',
                                 'class'=>'btn_form'
                                 ]) !!}
@@ -41,7 +47,7 @@
                                 {!! Form::close() !!}
 
                                 {!! Form::open([
-                                    'route' => array('console.tags.edit', $v->id),
+                                    'route' => array('console.article.edit', $v->id),
                                     'method' => 'get',
                                     'class'=>'btn_form'
                                 ]) !!}
@@ -59,7 +65,8 @@
                     </table>
 
                 </div>
-                {!! $tags->render() !!}
+                {!! $article->render() !!}
             </div>
+
         </div>
 @endsection

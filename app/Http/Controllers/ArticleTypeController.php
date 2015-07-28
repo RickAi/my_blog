@@ -14,7 +14,7 @@ class ArticleTypeController extends Controller {
 	 */
 	public function index()
 	{
-		//
+
 	}
 
 	/**

@@ -35,7 +35,8 @@ Route::controllers([
 Route::group(['prefix' => 'console', 'middleware' => 'auth'], function(){
     Route::any('/', 'console\HomeController@index');
     Route::resource('home', 'console\HomeController');
-    Route::resource('content', 'console\ContentController');
+    Route::resource('blog', 'console\BlogController');
+    Route::resource('user', 'console\UserController');
     Route::resource('article', 'console\ArticleController');
     Route::resource('article_type', 'console\ArticleTypeController');
     Route::resource('article_tag', 'console\ArticleTagController');

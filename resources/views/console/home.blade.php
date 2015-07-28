@@ -15,7 +15,7 @@
 
                         <ul class="nav nav-list">
                             <li>
-                                {{--<a href="{{ URL::route('console.user.index')}}">管理员列表</a>--}}
+                                <a href="{{ URL::route('console.user.index')}}">管理员列表</a>
                             </li>
                         </ul>
 

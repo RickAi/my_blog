@@ -1,4 +1,4 @@
-@extends('backend.content.common')
+@extends('blog')
 
 @section('content')
 

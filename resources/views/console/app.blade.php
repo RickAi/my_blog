@@ -45,7 +45,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{URL::route('console.home.index')}}">后台主页</a></li>
-					<li><a href="{{URL::route('console.content.index')}}">内容管理</a></li>
+					<li><a href="{{URL::route('console.blog.index')}}">博客管理</a></li>
 					{{--<li><a href="{{ url('/console/system/index') }}">系统设置</a></li>--}}
 				</ul>
 

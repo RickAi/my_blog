@@ -1,13 +1,11 @@
 <?php namespace App\Http\Controllers\console;
 
-use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use DB;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller {
+class BlogController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,9 +14,7 @@ class ArticleController extends Controller {
 	 */
 	public function index()
 	{
-		$article = Article::paginate(20);
-
-		return view('console.blog.article.index', compact('article'));
+		return view('console.blog.index');
 	}
 
 	/**

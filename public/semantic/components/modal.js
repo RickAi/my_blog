@@ -121,8 +121,8 @@ $.fn.modal = function(parameters) {
             module.debug('Creating dimmer with settings', dimmerSettings);
             $dimmable = $context.dimmer(dimmerSettings);
             if(settings.detachable) {
-              module.verbose('Modal is detachable, moving content into dimmer');
-              $dimmable.dimmer('add content', $module);
+              module.verbose('Modal is detachable, moving blog into dimmer');
+              $dimmable.dimmer('add blog', $module);
             }
             else {
               module.set.undetached();
@@ -585,7 +585,7 @@ $.fn.modal = function(parameters) {
               $body.css('height', '');
             }
             else {
-              module.debug('Modal is taller than page content, resizing page height');
+              module.debug('Modal is taller than page blog, resizing page height');
               $body
                 .css('height', module.cache.height + (settings.padding * 2) )
               ;

@@ -1,4 +1,4 @@
-@extends('backend.content.common')
+@extends('blog')
 
 @section('content')
 <div class="col-md-10">
@@ -17,19 +17,20 @@
         @endif
 
         <div class="panel-body">
-            {!! Form::model($tag, ['route' => ['backend.tags.update', $tag->id], 'method' => 'put','class'=>'form-horizontal']) !!}
+            {!! Form::open(['route' => 'backend.tags.store', 'method' => 'post','class'=>'form-horizontal']) !!}
+
 
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">标签名</label>
                 <div class="col-sm-3">
-                    {!! Form::text('name', $tag->name, ['class' => 'form-control','placeholder'=>'Tag Name']) !!}
+                    {!! Form::text('name', '', ['class' => 'form-control','placeholder'=>'Tag Name']) !!}
                     <font color="red">{{ $errors->first('name') }}</font>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    {!! Form::submit('修改', ['class' => 'btn btn-success']) !!}
+                    {!! Form::submit('创建', ['class' => 'btn btn-success']) !!}
                 </div>
             </div>
             {!! Form::close() !!}

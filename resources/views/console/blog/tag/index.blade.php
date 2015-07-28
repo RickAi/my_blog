@@ -1,34 +1,34 @@
-@extends('console.content.common')
+@extends('console.blog.common')
 
 @section('content')
         <div class="col-md-10">
             <div class="panel panel-default">
-                {{--{!! Notification::showAll() !!}--}}
+                {!! Notification::showAll() !!}
                 <div class="panel-heading">内容管理</div>
 
                 <div class="panel-body">
-                    <a class="btn btn-success" href="{{ URL::route('console.cate.create')}}">创建分类</a>
+                    <a class="btn btn-success" href="{{ URL::route('console.tags.create')}}">创建标签</a>
 
                     <table class="table table-hover table-top">
                         <tr>
                             <th>#</th>
-                            <th>分类名称</th>
-                            <th>创建时间</th>
+                            <th>标签名</th>
+                            <th>引用次数</th>
                             <th class="text-right">操作</th>
                         </tr>
 
-                        @foreach($cate as $k=> $v)
+                        @foreach($tags as $k=> $v)
                         <tr>
                             <th scope="row">{{ $v->id }}</th>
-                            <td>{{ $v->html}} {{ $v->cate_name }}</td>
-                            <td>{{ $v->created_at }}</td>
+                            <td>{{ $v->name }}</td>
+                            <td>{{ $v->number }}</td>
                             <td class="text-right">
 
 
 
 
                                 {!! Form::open([
-                                'route' => array('article_type', $v->id),
+                                'route' => array('console.tags.destroy', $v->id),
                                 'method' => 'delete',
                                 'class'=>'btn_form'
                                 ]) !!}
@@ -41,7 +41,7 @@
                                 {!! Form::close() !!}
 
                                 {!! Form::open([
-                                    'route' => array('console.cate.edit', $v->id),
+                                    'route' => array('console.tags.edit', $v->id),
                                     'method' => 'get',
                                     'class'=>'btn_form'
                                 ]) !!}
@@ -59,6 +59,7 @@
                     </table>
 
                 </div>
+                {!! $tags->render() !!}
             </div>
         </div>
 @endsection
