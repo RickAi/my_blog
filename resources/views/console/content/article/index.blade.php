@@ -1,4 +1,4 @@
-@extends('backend.content.common')
+@extends('console.content.common')
 
 @section('content')
         <div class="col-md-10">
@@ -7,7 +7,7 @@
                 <div class="panel-heading">内容管理</div>
 
                 <div class="panel-body">
-                    <a class="btn btn-success" href="{{ URL::route('backend.article.create')}}">写文章</a>
+                    <a class="btn btn-success" href="{{ URL::route('console.article.create')}}">写文章</a>
 
                     <table class="table table-hover table-top">
                         <tr>
@@ -25,16 +25,16 @@
                         <tr>
                             <th scope="row">{{ $v->id }}</th>
                             <td>{{ $v->title }}</td>
-                            <td>{{ App\Model\Category::getCategoryNameByCatId($v->cate_id) }}</td>
-                            <td>{{ App\User::getUserNameByUserId($v->user_id) }}</td>
-                            <td>{{ $v->status->view_number }}</td>
-                            <td>{{ $v->status->comment_number }}</td>
-                            <td>{{ $v->created_at }}</td>
+                            {{--<td>{{ App\Model\Category::getCategoryNameByCatId($v->cate_id) }}</td>--}}
+                            {{--<td>{{ App\User::getUserNameByUserId($v->user_id) }}</td>--}}
+                            {{--<td>{{ $v->status->view_number }}</td>--}}
+                            {{--<td>{{ $v->status->comment_number }}</td>--}}
+                            {{--<td>{{ $v->created_at }}</td>--}}
                             <td class="text-right">
 
 
                                 {!! Form::open([
-                                'route' => array('backend.article.destroy', $v->id),
+                                'route' => array('console.article.destroy', $v->id),
                                 'method' => 'delete',
                                 'class'=>'btn_form'
                                 ]) !!}
@@ -47,7 +47,7 @@
                                 {!! Form::close() !!}
 
                                 {!! Form::open([
-                                    'route' => array('backend.article.edit', $v->id),
+                                    'route' => array('console.article.edit', $v->id),
                                     'method' => 'get',
                                     'class'=>'btn_form'
                                 ]) !!}

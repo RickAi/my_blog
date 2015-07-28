@@ -5,15 +5,15 @@
 
         <ul class="nav nav-list">
             <li>
-                {{--<a href="{{URL::route('console.article_type.index')}}">分类管理</a>--}}
+                <a href="{{URL::route('console.article.index')}}">文章管理</a>
             </li>
 
             <li>
-                {{--<a href="{{URL::route('console.article.index')}}">文章管理</a>--}}
+                <a href="{{URL::route('console.article_type.index')}}">类别管理</a>
             </li>
 
             <li>
-                {{--<a href="{{URL::route('console.tags.index')}}">标签管理</a>--}}
+                <a href="{{URL::route('console.article_tag.index')}}">标签管理</a>
             </li>
 
             <li>

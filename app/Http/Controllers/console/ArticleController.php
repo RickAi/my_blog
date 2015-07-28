@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers\console;
 
+use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller {
@@ -14,7 +16,9 @@ class ArticleController extends Controller {
 	 */
 	public function index()
 	{
-		return view('console.content.article.index');
+		$article = DB::table('articles')->paginate(20);
+
+		return view('console.content.article.index', compact('article'));
 	}
 
 	/**

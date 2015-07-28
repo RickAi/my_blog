@@ -1,4 +1,4 @@
-@extends('backend.content.common')
+@extends('console.content.common')
 
 @section('content')
         <div class="col-md-10">
@@ -7,7 +7,7 @@
                 <div class="panel-heading">内容管理</div>
 
                 <div class="panel-body">
-                    <a class="btn btn-success" href="{{ URL::route('backend.tags.create')}}">创建标签</a>
+                    <a class="btn btn-success" href="{{ URL::route('console.tags.create')}}">创建标签</a>
 
                     <table class="table table-hover table-top">
                         <tr>
@@ -28,7 +28,7 @@
 
 
                                 {!! Form::open([
-                                'route' => array('backend.tags.destroy', $v->id),
+                                'route' => array('console.tags.destroy', $v->id),
                                 'method' => 'delete',
                                 'class'=>'btn_form'
                                 ]) !!}
@@ -41,7 +41,7 @@
                                 {!! Form::close() !!}
 
                                 {!! Form::open([
-                                    'route' => array('backend.tags.edit', $v->id),
+                                    'route' => array('console.tags.edit', $v->id),
                                     'method' => 'get',
                                     'class'=>'btn_form'
                                 ]) !!}

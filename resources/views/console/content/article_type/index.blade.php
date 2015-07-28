@@ -1,13 +1,13 @@
-@extends('backend.content.common')
+@extends('console.content.common')
 
 @section('content')
         <div class="col-md-10">
             <div class="panel panel-default">
-                {!! Notification::showAll() !!}
+                {{--{!! Notification::showAll() !!}--}}
                 <div class="panel-heading">内容管理</div>
 
                 <div class="panel-body">
-                    <a class="btn btn-success" href="{{ URL::route('backend.cate.create')}}">创建分类</a>
+                    <a class="btn btn-success" href="{{ URL::route('console.cate.create')}}">创建分类</a>
 
                     <table class="table table-hover table-top">
                         <tr>
@@ -41,7 +41,7 @@
                                 {!! Form::close() !!}
 
                                 {!! Form::open([
-                                    'route' => array('backend.cate.edit', $v->id),
+                                    'route' => array('console.cate.edit', $v->id),
                                     'method' => 'get',
                                     'class'=>'btn_form'
                                 ]) !!}
