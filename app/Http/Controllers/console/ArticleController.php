@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use Illuminate\Http\Request;
+use Krucas\Notification\Facades\Notification;
 
 class ArticleController extends Controller {
 
@@ -82,7 +83,9 @@ class ArticleController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Article::destroy($id);
+
+		return redirect()->route('console.article.index');
 	}
 
 }

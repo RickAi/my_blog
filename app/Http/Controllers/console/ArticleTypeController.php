@@ -4,6 +4,7 @@ use App\ArticleType;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\ArticleTypeRequest;
 use Illuminate\Http\Request;
 
 class ArticleTypeController extends Controller {
@@ -27,7 +28,7 @@ class ArticleTypeController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('console.blog.article_type.create');
 	}
 
 	/**
@@ -35,9 +36,13 @@ class ArticleTypeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(ArticleTypeRequest $request)
 	{
-		//
+		$article_type = new ArticleType();
+		$article_type->name = $request->name;
+		$article_type->save();
+
+		return redirect()->route('console.article_type.index');
 	}
 
 	/**
@@ -81,7 +86,9 @@ class ArticleTypeController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		ArticleType::destroy($id);
+
+		return redirect()->route('console.article_type.index');
 	}
 
 }

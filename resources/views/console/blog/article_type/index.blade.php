@@ -13,6 +13,7 @@
                         <tr>
                             <th>#</th>
                             <th>分类名称</th>
+                            <th>文章个数</th>
                             <th>创建时间</th>
                             <th class="text-right">操作</th>
                         </tr>
@@ -21,6 +22,7 @@
                         <tr>
                             <th scope="row">{{ $v->id }}</th>
                             <td>{{ $v->name }}</td>
+                            <td>{{ count($v->articles)  }}</td>
                             <td>{{ $v->created_at }}</td>
                             <td class="text-right">
 
