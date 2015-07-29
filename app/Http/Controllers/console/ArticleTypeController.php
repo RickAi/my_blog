@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\ArticleTypeRequest;
 use Illuminate\Http\Request;
+use Notification;
 
 class ArticleTypeController extends Controller {
 
@@ -42,6 +43,8 @@ class ArticleTypeController extends Controller {
 		$article_type->name = $request->name;
 		$article_type->save();
 
+		Notification::success("添加成功");
+
 		return redirect()->route('console.article_type.index');
 	}
 
@@ -64,7 +67,8 @@ class ArticleTypeController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$article_type = ArticleType::find($id);
+		return view('console.blog.article_type.edit', compact('article_type'));
 	}
 
 	/**
@@ -73,9 +77,13 @@ class ArticleTypeController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, ArticleTypeRequest $request)
 	{
-		//
+		$article_type = ArticleType::find($id);
+		$article_type->name = $request->name;
+		$article_type->save();
+
+		return redirect()->route('console.article_type.index');
 	}
 
 	/**

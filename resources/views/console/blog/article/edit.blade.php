@@ -1,4 +1,4 @@
-@extends('blog')
+@extends('console.blog.common')
 
 @section('content')
 
@@ -22,53 +22,28 @@
                 @endif
 
                 <div class="panel-body">
-                    {!! Form::model($article, ['route' => ['backend.article.update', $article->id], 'method' => 'put','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
-
+                    {!! Form::model($article, ['route' => ['console.article.update', $article->id], 'method' => 'put','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
 
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">标题</label>
                             <div class="col-sm-7">
-                                {!! Form::text('title', $article->title, ['class' => 'form-control','placeholder'=>'title']) !!}
+                                {!! Form::text('title', $article->title, ['class' => 'form-control']) !!}
                                 <font color="red">{{ $errors->first('title') }}</font>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">所属分类</label>
-                            <div class="col-sm-7">
-                                {!! Form::select('cate_id', $catArr , null , ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">标签</label>
-                            <div class="col-sm-7">
-                                {!! Form::text('tags', '', ['class' => 'form-control','placeholder'=>'回车确定','id'=>'tags']) !!}
-                                <font color="red">{{ $errors->first('tags') }}</font>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">封面图</label>
-                            <div class="col-sm-7">
-                                {!! Form::file('pic') !!}
-                                <font color="red">{{ $errors->first('pic') }}</font>
-                                @if(!empty($article->pic))
-                                    <img  src="{{ asset('/uploads').'/'.$article->pic }}" width="300px" height="100"/>
-                                @endif
-                            </div>
-
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<label for="inputEmail3" class="col-sm-2 control-label">所属分类</label>--}}
+                            {{--<div class="col-sm-7">--}}
+                                {{--{!! Form::select('article_type_id', $article_type_names , null , ['class' => 'form-control']) !!}--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">内容</label>
-                            <div class="col-sm-3">
-                                <div class="editor">
-                                    @include('editor::head')
-                                    {!! Form::textarea('content', $article->content, ['class' => 'form-control','id'=>'myEditor']) !!}
-                                </div>
+                            <div class="col-sm-10">
+                                    {{--@include('editor::head')--}}
+                                    {!! Form::textarea('body', $article->body, ['class' => 'form-control','id'=>'myEditor']) !!}
                                 <font color="red">{{ $errors->first('content') }}</font>
                             </div>
                         </div>
@@ -87,16 +62,4 @@
 <script type="text/javascript" src="{{ asset('/plugin/tags/jquery-ui.js ') }}"></script>
 <script type="text/javascript" src="{{ asset('/plugin/tags/bootstrap-tokenfield.js ') }}" charset="UTF-8"></script>
 
-<script type="text/javascript">
-    $('#tag').tokenfield({
-        autocomplete: {
-            source: <?php echo  \App\Model\Tag::getTagStringAll()?>,
-            delay: 100
-
-        },
-        showAutocompleteOnFocus: !0,
-        delimiter: [","],
-        tokens: <?php echo  \App\Model\Tag::getTagStringByTagIds($article->tags)?>
-    })
-</script>
 @endsection
