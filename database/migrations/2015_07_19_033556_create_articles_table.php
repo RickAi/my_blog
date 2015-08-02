@@ -20,7 +20,6 @@ class CreateArticlesTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->integer('article_type_id')->unsigned();
-			$table->string('slug')->nullable();
 			$table->text('body')->nullable();
 			$table->integer('user_id');
 			$table->integer('view_numbers');

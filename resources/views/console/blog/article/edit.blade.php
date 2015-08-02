@@ -32,12 +32,12 @@
                             </div>
                         </div>
 
-                        {{--<div class="form-group">--}}
-                            {{--<label for="inputEmail3" class="col-sm-2 control-label">所属分类</label>--}}
-                            {{--<div class="col-sm-7">--}}
-                                {{--{!! Form::select('article_type_id', $article_type_names , null , ['class' => 'form-control']) !!}--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">所属分类</label>
+                            <div class="col-sm-7">
+                                {!! Form::select('article_type_id', $type_tree , null , ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">内容</label>

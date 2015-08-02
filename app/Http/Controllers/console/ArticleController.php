@@ -31,7 +31,8 @@ class ArticleController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$type_tree = ArticleType::getTypeTree();
+		return view('console.blog.article.create', compact('type_tree'));
 	}
 
 	/**
@@ -39,9 +40,15 @@ class ArticleController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(ArticleRequest $request)
 	{
-		//
+		$article = new Article();
+		$article->body = $request->body;
+		$article->title = $request->title;
+		$article->slug = "empty";
+		$article->article_type_id = $request->article_type_id;
+		$article->save();
+		return redirect()->route('console.article.index');
 	}
 
 	/**
@@ -64,14 +71,9 @@ class ArticleController extends Controller {
 	public function edit($id)
 	{
 		$article = Article::find($id);
-		$article_types = ArticleType::all();
-		$article_type_names = array();
+		$type_tree = ArticleType::getTypeTree();
 
-		foreach($article_types as $article_type){
-			$article_type_names[count($article_type_names)] = $article_type->name;
-		}
-
-		return view('console.blog.article.edit', compact('article', 'article_type_names'));
+		return view('console.blog.article.edit', compact('article', 'type_tree'));
 	}
 
 	/**
@@ -86,6 +88,7 @@ class ArticleController extends Controller {
 
 		$article->title = $request->title;
 		$article->body = $request->body;
+		$article->article_type_id = $request->article_type_id;
 		$article->save();
 
 		return redirect()->route('console.article.index');

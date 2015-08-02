@@ -25,6 +25,7 @@ class ArticleRequest extends Request {
 		return [
 			'title' => 'required',
 			'body' => 'required',
+			'article_type_id' => 'required'
 		];
 	}
 
