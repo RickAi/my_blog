@@ -21,7 +21,7 @@ class ArticleTableSeeder extends Seeder
         $tags = ArticleType::all();
 
         // 初始化博客的路径
-        $dir = "/home/vagrant/projects/blogs";
+        $dir = "/root/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);
@@ -53,7 +53,7 @@ class ArticleTableSeeder extends Seeder
             Article::create([
                 'title' => $blog_name,
                 'article_type_id' => $article_type_id,
-                'slug' => 'blog',
+                'view_numbers' => 0,
                 'body' => $file_content,
                 'user_id' => 1,
             ]);
