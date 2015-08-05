@@ -4,7 +4,7 @@
 
     <div class="ui container">
         <div class="ui piled very padded text segment">
-            <img class="ui small circular image right floated" src="/images/head_portrait.jpg">
+            <img class="ui small circular image right floated" src="/images/head_portrait.JPG">
 
             {!! $about_me_content !!}
 
