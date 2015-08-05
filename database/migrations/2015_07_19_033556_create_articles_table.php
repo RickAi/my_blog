@@ -23,7 +23,8 @@ class CreateArticlesTable extends Migration {
 			$table->text('body')->nullable();
 			$table->integer('user_id');
 			$table->integer('view_numbers');
-			$table->timestamps();
+			$table->dateTime('created_at')->nullable();
+			$table->dateTime('updated_at')->nullable();
 
 			$table->foreign('article_type_id')
 				->references('id')

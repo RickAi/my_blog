@@ -2,7 +2,9 @@
 
 use App\Article;
 use App\ArticleType;
+use DateTime;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\DB;
 use ParsedownExtra;
 
 class HomeController extends Controller {
@@ -15,11 +17,25 @@ class HomeController extends Controller {
 
 	// blog page
 	public function blog(){
-		// Get articles with pagination, 30 for each
-		$articles = Article::paginate(30);
+		// Get articles with pagination, 30 for each, ordered by the updated time
+		$articles = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(30);
 		$types = ArticleType::all();
 
-		return view('homepage.blog', compact('articles', 'types'));
+
+		// set article and article update time into a array
+		$article_infos = array();
+		$i = 0;
+		foreach ($articles as $article) {
+			$date_str = $article->updated_at;
+			$date = explode(" ", $date_str);
+
+			$article_infos[$i] = array();
+			$article_infos[$i][0] = $article;
+			$article_infos[$i][1] = $date[0];
+			$i++;
+		}
+
+		return view('homepage.blog', compact('article_infos', 'types', 'articles'));
 	}
 
 	// about me page

@@ -6,8 +6,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\ArticleRequest;
-use DB;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Krucas\Notification\Facades\Notification;
 
 class ArticleController extends Controller {
@@ -20,6 +21,7 @@ class ArticleController extends Controller {
 	public function index()
 	{
 		$article = Article::paginate(20);
+//		$article = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(20);
 
 		return view('console.blog.article.index', compact('article'));
 	}
@@ -45,8 +47,9 @@ class ArticleController extends Controller {
 		$article = new Article();
 		$article->body = $request->body;
 		$article->title = $request->title;
-		$article->slug = "empty";
 		$article->article_type_id = $request->article_type_id;
+		$article->updated_at = new DateTime();
+		$article->created_at = $article->updated_at;
 		$article->save();
 		return redirect()->route('console.article.index');
 	}
@@ -89,6 +92,7 @@ class ArticleController extends Controller {
 		$article->title = $request->title;
 		$article->body = $request->body;
 		$article->article_type_id = $request->article_type_id;
+		$article->updated_at = new DateTime();
 		$article->save();
 
 		return redirect()->route('console.article.index');

@@ -4,6 +4,7 @@ use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DateTime;
 use Illuminate\Http\Request;
 use ParsedownExtra;
 
@@ -50,7 +51,6 @@ class ArticlesController extends Controller {
 		$article = Article::find($id);
 		$extra = new ParsedownExtra();
 		$article->body = $extra->text($article->body);
-
 		return view('articles.show', compact('article'));
 	}
 

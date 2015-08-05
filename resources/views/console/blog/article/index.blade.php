@@ -26,7 +26,7 @@
                             <td>{{ $v->title }}</td>
                             <td>{{ $v->article_type->name }}</td>
                             <td>{{ 0 }}</td>
-                            <td>{{ $v->created_at}}</td>
+                            <td>{{ $v->updated_at}}</td>
                             {{--<td>{{ $v->status->comment_number }}</td>--}}
                             {{--<td>{{ $v->created_at }}</td>--}}
                             <td class="text-right">

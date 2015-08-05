@@ -16,7 +16,8 @@ class CreateArticleTypesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name')->nullable();
-			$table->timestamps();
+			$table->dateTime('created_at')->nullable();
+			$table->dateTime('updated_at')->nullable();
 		});
 	}
 

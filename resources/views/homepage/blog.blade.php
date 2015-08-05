@@ -121,10 +121,14 @@
                     <table class="ui selectable table">
                         <tbody>
 
-                        @foreach ($articles as $article)
+                        @foreach ($article_infos as $article_info)
                             <tr>
                                 <td class="left aligned"><a
-                                            href="{{ URL('articles/'.$article->id) }}">{{$article->title}}</a>
+                                            href="{{ URL('articles/'.$article_info[0]->id) }}">{{$article_info[0]->title}}</a>
+                                </td>
+
+                                <td class="right aligned">
+                                        {{$article_info[1]}}
                                 </td>
                             </tr>
                         @endforeach

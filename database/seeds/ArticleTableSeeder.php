@@ -21,7 +21,7 @@ class ArticleTableSeeder extends Seeder
         $tags = ArticleType::all();
 
         // 初始化博客的路径
-        $dir = "/root/blogs";
+        $dir = "/home/vagrant/projects/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);
@@ -31,6 +31,9 @@ class ArticleTableSeeder extends Seeder
             if($file_extension != 'md'){
                 continue;
             }
+
+            $create_time_stamp = $file_system->lastModified($file);
+            $create_time = gmdate("Y-m-d", $create_time_stamp);
 
             $file_content = $file_system->get($file);
             $file_name = preg_replace('/^.+[\\\\\\/]/', '', $file);
@@ -56,6 +59,8 @@ class ArticleTableSeeder extends Seeder
                 'view_numbers' => 0,
                 'body' => $file_content,
                 'user_id' => 1,
+                'created_at' => $create_time,
+                'updated_at' => $create_time,
             ]);
         }
     }

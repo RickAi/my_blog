@@ -19,7 +19,7 @@ class ArticleTypeSeeder extends Seeder {
         $tag_array = array();
         $first_add = true;
 
-        $dir = "/root/blogs";
+        $dir = "/home/vagrant/projects/blogs";
         $file_system = new Filesystem();
 
         $files = $file_system->allFiles($dir);
@@ -33,28 +33,41 @@ class ArticleTypeSeeder extends Seeder {
             $last_dir = dirname($file);
             $tag_name = preg_replace('/^.+[\\\\\\/]/', '', $last_dir);
 
+            $create_time_stamp = $file_system->lastModified($file);
+            $create_time = gmdate("Y-m-d", $create_time_stamp);
+
             if ($first_add) {
-                $tag_array[0] = $tag_name;
+                $tag_info = array();
+                $tag_info[0] = $tag_name;
+                $tag_info[1] = $create_time;
+
+                $tag_array[0] = $tag_info;
                 $first_add = false;
             }
 
             $is_new = true;
             foreach ($tag_array as $tag) {
-                if(strcmp($tag, $tag_name) == 0){
+                if(strcmp($tag[0], $tag_name) == 0){
                     $is_new = false;
                 }
             }
 
             if($is_new){
                 $tag_count = count($tag_array);
-                $tag_array[$tag_count] = $tag_name;
-            }
 
+                $tag_info = array();
+                $tag_info[0] = $tag_name;
+                $tag_info[1] = $create_time;
+
+                $tag_array[$tag_count] = $tag_info;
+            }
         }
 
-        foreach ($tag_array as $tag) {
+        foreach ($tag_array as $tag_io) {
             ArticleType::create([
-                'name' => $tag,
+                'name' => $tag_io[0],
+                'created_at' => $tag_io[1],
+                'updated_at' => $tag_io[1],
             ]);
         }
     }
