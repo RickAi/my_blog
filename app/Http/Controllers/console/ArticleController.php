@@ -20,7 +20,7 @@ class ArticleController extends Controller {
 	 */
 	public function index()
 	{
-		$article = Article::paginate(20);
+		$article = Article::orderBy('updated_at', 'desc')->paginate(20);
 //		$article = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(20);
 
 		return view('console.blog.article.index', compact('article'));
