@@ -42,6 +42,13 @@ Route::group(['prefix' => 'console', 'middleware' => 'auth'], function(){
     Route::resource('article_tag', 'console\ArticleTagController');
 } );
 
+
+Route::group(['prefix' => 'api/v1'], function(){
+
+    Route::resource('pictures', 'api\PictureController', ['only' => ['index', 'show']]);
+
+});
+
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',

@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\api;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,8 @@ class PictureController extends Controller {
 	 */
 	public function index()
 	{
-
+		$pictures = Picture::paginate(5);
+		return $pictures->toJson();
 	}
 
 	/**
@@ -44,9 +45,8 @@ class PictureController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Picture $picture)
 	{
-		$picture = Picture::find($id);
 		return $picture->toJson();
 	}
 
