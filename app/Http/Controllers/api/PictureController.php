@@ -15,7 +15,7 @@ class PictureController extends Controller {
 	 */
 	public function index()
 	{
-		$pictures = Picture::paginate(5);
+		$pictures = Picture::orderByRaw('RAND()')->paginate(5);
 		return $pictures->toJson();
 	}
 
