@@ -15,7 +15,8 @@ class PictureController extends Controller {
 	 */
 	public function index()
 	{
-
+		$pictures = Picture::orderByRaw('RAND()')->paginate(20);
+		return view('homepage.picture', compact('pictures'));
 	}
 
 	/**

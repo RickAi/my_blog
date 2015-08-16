@@ -19,6 +19,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/blog', 'HomeController@blog');
 Route::get('/me', 'HomeController@me');
 Route::get('/book', 'HomeController@book');
+Route::get('/picture', 'HomeController@picture');
 Route::get('/movie', 'HomeController@movie');
 Route::get('/fitness', 'HomeController@fitness');
 Route::get('/project', 'HomeController@project');

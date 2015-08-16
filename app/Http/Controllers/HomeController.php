@@ -2,6 +2,7 @@
 
 use App\Article;
 use App\ArticleType;
+use App\Picture;
 use DateTime;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\DB;
@@ -68,5 +69,11 @@ class HomeController extends Controller {
 	// the project record page
 	public function project(){
 
+	}
+
+	public function picture(){
+		$pictures = Picture::orderByRaw('RAND()')->paginate(20);
+//		$pictures = DB::table('pictures')->paginate(20);
+		return view('homepage.picture', compact('pictures'));
 	}
 }
