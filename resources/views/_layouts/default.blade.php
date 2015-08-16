@@ -32,7 +32,7 @@
     <div class="ui container">
         <a href="/blog" class="item">Blog</a>
         <a class="item">Project</a>
-        <a href="/picture" class="item">Picture</a>
+        <a href="/pictures" class="item">Picture</a>
         <a class="item">Book</a>
         <a class="item">Movie</a>
         <a class="item">Music</a>
@@ -47,7 +47,7 @@
             <div class="ui large secondary inverted menu">
                 <a href="/blog" class="item">Blog</a>
                 <a class="item">Project</a>
-                <a href="/picture" class="item">Picture</a>
+                <a href="/pictures" class="item">Picture</a>
                 <a class="item">Book</a>
                 <a class="item">Movie</a>
                 <a class="item">Music</a>

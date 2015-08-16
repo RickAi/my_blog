@@ -48,7 +48,7 @@ class PictureController extends Controller {
 	public function show($id)
 	{
 		$picture = Picture::find($id);
-		return $picture->toJson();
+		return view('pictures.show', compact('picture'));
 	}
 
 	/**

@@ -19,12 +19,13 @@ Route::get('/', 'HomeController@index');
 Route::get('/blog', 'HomeController@blog');
 Route::get('/me', 'HomeController@me');
 Route::get('/book', 'HomeController@book');
-Route::get('/picture', 'HomeController@picture');
+Route::get('/pictures', 'HomeController@pictures');
 Route::get('/movie', 'HomeController@movie');
 Route::get('/fitness', 'HomeController@fitness');
 Route::get('/project', 'HomeController@project');
 
 Route::get('/articles/{id}', 'ArticlesController@show');
+Route::get('/pictures/{id}', 'PictureController@show');
 Route::post('comment/store', 'CommentsController@store');
 
 Route::controllers([

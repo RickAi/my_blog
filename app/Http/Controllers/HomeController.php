@@ -71,8 +71,8 @@ class HomeController extends Controller {
 
 	}
 
-	public function picture(){
-		$pictures = Picture::orderByRaw('RAND()')->paginate(20);
+	public function pictures(){
+		$pictures = Picture::orderByRaw('RAND()')->paginate(15);
 //		$pictures = DB::table('pictures')->paginate(20);
 		return view('homepage.picture', compact('pictures'));
 	}
