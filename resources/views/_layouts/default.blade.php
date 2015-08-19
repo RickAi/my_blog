@@ -31,12 +31,12 @@
 <div class="ui large top fixed inverted hidden menu computer tablet only">
     <div class="ui container">
         <a href="/blog" class="item">Blog</a>
-        <a class="item">Project</a>
+        <a href="/project" class="item">Project</a>
         <a href="/pictures" class="item">Picture</a>
-        <a class="item">Book</a>
-        <a class="item">Movie</a>
-        <a class="item">Music</a>
-        <a class="item">Fitness</a>
+        <a href="/book" class="item">Book</a>
+        <a href="/movie" class="item">Movie</a>
+        <a href="/music" class="item">Music</a>
+        <a href="/fitness" class="item">Fitness</a>
         <a href="/me" class="item">About Me</a>
     </div>
 </div>
@@ -46,12 +46,12 @@
         <div class="ui container">
             <div class="ui large secondary inverted menu">
                 <a href="/blog" class="item">Blog</a>
-                <a class="item">Project</a>
+                <a href="/project" class="item">Project</a>
                 <a href="/pictures" class="item">Picture</a>
-                <a class="item">Book</a>
-                <a class="item">Movie</a>
-                <a class="item">Music</a>
-                <a class="item">Fitness</a>
+                <a href="/book" class="item">Book</a>
+                <a href="/movie" class="item">Movie</a>
+                <a href="/music" class="item">Music</a>
+                <a href="/fitness" class="item">Fitness</a>
                 <a href="/me" class="item">About Me</a>
             </div>
         </div>

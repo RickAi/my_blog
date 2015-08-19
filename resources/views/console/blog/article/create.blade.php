@@ -45,7 +45,7 @@
                             <label for="inputPassword3" class="col-sm-2 control-label">内容</label>
                             <div class="col-sm-7 editor">
                                 {!! Form::textarea('body', '', ['class' => 'form-control','id'=>'myEditor']) !!}
-                                <font color="red">{{ $errors->first('content') }}</font>
+                                <font color="red">{{ $errors->first('body') }}</font>
                             </div>
                         </div>
 

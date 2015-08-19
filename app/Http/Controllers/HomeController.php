@@ -51,24 +51,29 @@ class HomeController extends Controller {
 		return view('homepage.me', compact('about_me_content'));
 	}
 
+	// the music record page
+	public function music(){
+		return view('homepage.music');
+	}
+
 	// the book record page
 	public function book(){
-
+		return view('homepage.book');
 	}
 
 	// the movie record page
 	public function movie(){
-
+		return view('homepage.movie');
 	}
 
 	// the fitness page
 	public function fitness(){
-
+		return view('homepage.fitness');
 	}
 
 	// the project record page
 	public function project(){
-
+		return view('homepage.project');
 	}
 
 	public function pictures(){

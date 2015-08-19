@@ -23,6 +23,7 @@ Route::get('/pictures', 'HomeController@pictures');
 Route::get('/movie', 'HomeController@movie');
 Route::get('/fitness', 'HomeController@fitness');
 Route::get('/project', 'HomeController@project');
+Route::get('/music', 'HomeController@music');
 
 Route::get('/articles/{id}', 'ArticlesController@show');
 Route::get('/pictures/{id}', 'PictureController@show');
