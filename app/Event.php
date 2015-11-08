@@ -12,5 +12,6 @@ class Event extends Model {
     const TYPE_STUDY = 2;
     const TYPE_DAILY = 3;
 
+    protected $fillable = ['name', 'deadline', 'is_finished', 'priority', 'project_type'];
 
 }
