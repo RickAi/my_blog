@@ -15,6 +15,10 @@
 //Route::get('home', 'HomeController@index');
 
 //HomeController
+Route::get('/events', 'EventController@index');
+Route::post('/events', 'EventController@store');
+Route::get('/events/{events}', 'EventController@finishEvent');
+
 Route::get('/', 'HomeController@index');
 Route::get('/blog', 'HomeController@blog');
 Route::get('/me', 'HomeController@me');
