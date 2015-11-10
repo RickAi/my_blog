@@ -23,7 +23,7 @@ class EventRequest extends Request {
 	{
 		return [
 			'name' => 'required',
-			'deadline' => 'required',
+			'event_type' => 'required',
 		];
 	}
 
