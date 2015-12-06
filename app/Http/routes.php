@@ -17,7 +17,7 @@
 //HomeController
 Route::get('/events', 'EventController@index');
 Route::post('/events', 'EventController@store');
-Route::get('/events/{events}', 'EventController@finishEvent');
+Route::post('/events/{events}', 'EventController@finishEvent');
 
 Route::get('/', 'HomeController@index');
 Route::get('/blog', 'HomeController@blog');
