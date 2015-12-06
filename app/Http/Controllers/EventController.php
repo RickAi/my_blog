@@ -136,7 +136,7 @@ class EventController extends Controller {
 
 	public function finishEvent(Request $request, Event $event){
 		try{
-			\DB::table('events')->delete($event->id);
+			dd($event->id);
 		} catch(\Exception $e){
 			return response(['status' => 'failed']);
 		}
