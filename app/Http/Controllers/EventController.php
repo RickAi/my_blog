@@ -135,7 +135,7 @@ class EventController extends Controller {
 	}
 
 	public function finishEvent(Event $event){
-		$event->delete();
+		Event::destroy($event->id);
 		return response(['status' => 'success']);
 	}
 
